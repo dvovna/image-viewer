@@ -4,35 +4,47 @@ body
     height: 100%
     width: 100%
 
-.imgViewer
-    display: inline
-    padding: 0px
-    margin: 0px
-    background-color: grey
-    position: absolute
-    height: 100%
-    width: 100%
-    .smallImgsContainer
-        background-color: black
+.overviewWS
+    .imgViewer
         display: inline-block
         float: left
+        padding: 0px
+        margin: 0px
+        position: absolute
         height: 100%
-        width: 25%
-        max-width: 300px
-        .imgView
-            display: block
+        width: 60%
+        div
+            overflow: hidden
+        .smallImgsContainer
+            display: inline-block
             float: left
-            margin: 5px
-            background-color: whitesmoke
+            height: 100%
+            width: 40%
+            overflow-y: auto
+            max-width: 300px
+            .imgView
+                display: block
+                float: left
+                margin: 3px
+                background-color: whitesmoke
+                text-align: center
+                width: 135px
+        .bigImgContainer
+            display: inline-block
             text-align: center
-            width: 140px
-    .bigImgContainer
+            width: 55%
+            img
+                margin-top: 15px
+        img
+            display: inline-block
+            background: transparent
+            margin: 5px
+    .descriptionContainer
+        background-color: grey
+        overflow: hidden
+        overflow-y: auto
         float: right
-        display: inline-block
-        text-align: center
-        width: 75%
-    img
-        display: inline-block
-        background: transparent
-        margin: 5px
-
+        right: 0px
+        position: absolute
+        height: 100%
+        width: 45%
