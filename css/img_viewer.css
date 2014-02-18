@@ -1,18 +1,43 @@
 /* line 1, ../sass/img_viewer.sass */
 body {
   padding: 0px;
-  margin: 0px; }
+  margin: 0px;
+  height: 100%;
+  width: 100%; }
 
-/* line 5, ../sass/img_viewer.sass */
+/* line 7, ../sass/img_viewer.sass */
 .imgViewer {
+  display: inline;
   padding: 0px;
   margin: 0px;
   background-color: grey;
   position: absolute;
   height: 100%;
   width: 100%; }
-  /* line 12, ../sass/img_viewer.sass */
+  /* line 15, ../sass/img_viewer.sass */
+  .imgViewer .smallImgsContainer {
+    background-color: black;
+    display: inline-block;
+    float: left;
+    height: 100%;
+    width: 25%;
+    max-width: 300px; }
+    /* line 22, ../sass/img_viewer.sass */
+    .imgViewer .smallImgsContainer .imgView {
+      display: block;
+      float: left;
+      margin: 5px;
+      background-color: whitesmoke;
+      text-align: center;
+      width: 140px; }
+  /* line 29, ../sass/img_viewer.sass */
+  .imgViewer .bigImgContainer {
+    float: right;
+    display: inline-block;
+    text-align: center;
+    width: 75%; }
+  /* line 34, ../sass/img_viewer.sass */
   .imgViewer img {
-    display: block;
+    display: inline-block;
     background: transparent;
-    position: absolute; }
+    margin: 5px; }
