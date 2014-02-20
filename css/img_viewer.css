@@ -1,11 +1,11 @@
-/* line 1, ../sass/img_viewer.sass */
+/* line 5, ../sass/img_viewer.sass */
 body {
   padding: 0px;
   margin: 0px;
   height: 100%;
   width: 100%; }
 
-/* line 8, ../sass/img_viewer.sass */
+/* line 12, ../sass/img_viewer.sass */
 .overviewWS .imgViewer {
   display: inline-block;
   float: left;
@@ -14,10 +14,10 @@ body {
   position: absolute;
   height: 100%;
   width: 57%; }
-  /* line 16, ../sass/img_viewer.sass */
+  /* line 20, ../sass/img_viewer.sass */
   .overviewWS .imgViewer div {
     overflow: hidden; }
-  /* line 18, ../sass/img_viewer.sass */
+  /* line 22, ../sass/img_viewer.sass */
   .overviewWS .imgViewer .smallImgsContainer {
     display: inline-block;
     float: left;
@@ -25,7 +25,7 @@ body {
     width: 40%;
     overflow-y: auto;
     max-width: 300px; }
-    /* line 25, ../sass/img_viewer.sass */
+    /* line 29, ../sass/img_viewer.sass */
     .overviewWS .imgViewer .smallImgsContainer .imgView {
       display: block;
       float: left;
@@ -33,20 +33,20 @@ body {
       background-color: whitesmoke;
       text-align: center;
       width: 135px; }
-  /* line 32, ../sass/img_viewer.sass */
+  /* line 36, ../sass/img_viewer.sass */
   .overviewWS .imgViewer .bigImgContainer {
     display: inline-block;
     text-align: center;
     width: 55%; }
-    /* line 36, ../sass/img_viewer.sass */
+    /* line 40, ../sass/img_viewer.sass */
     .overviewWS .imgViewer .bigImgContainer img {
       margin-top: 15px; }
-  /* line 38, ../sass/img_viewer.sass */
+  /* line 42, ../sass/img_viewer.sass */
   .overviewWS .imgViewer img {
     display: inline-block;
     background: transparent;
     margin: 5px; }
-/* line 42, ../sass/img_viewer.sass */
+/* line 46, ../sass/img_viewer.sass */
 .overviewWS .descriptionContainer {
   overflow: hidden;
   overflow-y: auto;
@@ -55,54 +55,62 @@ body {
   position: absolute;
   height: 100%;
   width: 45%; }
-  /* line 50, ../sass/img_viewer.sass */
+  /* line 54, ../sass/img_viewer.sass */
   .overviewWS .descriptionContainer h1 {
     padding-left: 1%;
     padding-bottom: 0px;
     margin-bottom: 0px;
-    font-size: 26px; }
-    /* line 55, ../sass/img_viewer.sass */
-    .overviewWS .descriptionContainer h1 span:first-child {
+    font-size: 24px; }
+    /* line 59, ../sass/img_viewer.sass */
+    .overviewWS .descriptionContainer h1 a {
+      text-decoration: none;
+      color: #034b83; }
+    /* line 62, ../sass/img_viewer.sass */
+    .overviewWS .descriptionContainer h1 span.price {
+      color: #993300;
       font-size: 34px;
       padding-left: 10px; }
-    /* line 58, ../sass/img_viewer.sass */
+    /* line 66, ../sass/img_viewer.sass */
     .overviewWS .descriptionContainer h1 span {
-      font-size: 26px; }
-    /* line 60, ../sass/img_viewer.sass */
+      font-size: 23px;
+      color: grey; }
+    /* line 69, ../sass/img_viewer.sass */
     .overviewWS .descriptionContainer h1 span.date {
       font-size: 16px;
       padding-left: 10px;
       color: grey; }
-  /* line 64, ../sass/img_viewer.sass */
+  /* line 73, ../sass/img_viewer.sass */
   .overviewWS .descriptionContainer p {
     font-size: 14px;
+    margin-left: 10px;
     padding-right: 20px; }
-  /* line 67, ../sass/img_viewer.sass */
+  /* line 77, ../sass/img_viewer.sass */
   .overviewWS .descriptionContainer h2 {
     font-size: 20px;
     margin-bottom: 0px;
     color: grey; }
-    /* line 71, ../sass/img_viewer.sass */
+    /* line 81, ../sass/img_viewer.sass */
     .overviewWS .descriptionContainer h2 p {
       font-size: 16px; }
-  /* line 73, ../sass/img_viewer.sass */
+  /* line 83, ../sass/img_viewer.sass */
   .overviewWS .descriptionContainer ul {
     list-style: none;
-    display: block;
+    display: inline-table;
     margin: 0px;
-    padding: 0px;
-    height: 100%;
+    padding: 10px;
     width: 90%; }
-    /* line 80, ../sass/img_viewer.sass */
+    /* line 89, ../sass/img_viewer.sass */
     .overviewWS .descriptionContainer ul li {
-      display: inline-block;
-      width: 100%; }
-      /* line 83, ../sass/img_viewer.sass */
+      display: table-row;
+      margin: 0px;
+      height: auto; }
+      /* line 93, ../sass/img_viewer.sass */
       .overviewWS .descriptionContainer ul li h3, .overviewWS .descriptionContainer ul li h4 {
-        display: inline; }
-      /* line 85, ../sass/img_viewer.sass */
+        display: table-cell;
+        overflow: hidden;
+        font-size: 13px;
+        padding: 0px;
+        padding-bottom: 5px; }
+      /* line 99, ../sass/img_viewer.sass */
       .overviewWS .descriptionContainer ul li h3 {
-        float: left; }
-      /* line 87, ../sass/img_viewer.sass */
-      .overviewWS .descriptionContainer ul li h4 {
-        float: right; }
+        color: #666666; }

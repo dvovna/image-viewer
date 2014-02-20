@@ -1,3 +1,7 @@
+$link_color: #034B83
+$major_text_color: #993300
+$secondary_text_color: grey
+
 body
     padding: 0px
     margin: 0px
@@ -51,18 +55,24 @@ body
             padding-left: 1%
             padding-bottom: 0px
             margin-bottom: 0px
-            font-size: 26px
-            span:first-child
+            font-size: 24px
+            a
+                text-decoration: none
+                color: $link_color
+            span.price
+                color: $major_text_color
                 font-size: 34px
                 padding-left: 10px
             span
-                font-size: 26px
+                font-size: 23px
+                color: $secondary_text_color
             span.date
                 font-size: 16px
                 padding-left: 10px
-                color: grey
+                color: $secondary_text_color
         p
             font-size: 14px
+            margin-left: 10px
             padding-right: 20px
         h2
             font-size: 20px
@@ -72,17 +82,19 @@ body
                 font-size: 16px
         ul
             list-style: none
-            display: block
+            display: inline-table
             margin: 0px
-            padding: 0px
-            height: 100%
+            padding: 10px
             width: 90%
             li
-                display: inline-block
-                width: 100%
+                display: table-row
+                margin: 0px
+                height: auto
                 h3, h4
-                    display: inline
+                    display: table-cell
+                    overflow: hidden
+                    font-size: 13px
+                    padding: 0px
+                    padding-bottom: 5px
                 h3
-                    float: left
-                h4
-                    float: right
+                    color: #666666
