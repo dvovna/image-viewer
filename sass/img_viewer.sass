@@ -28,11 +28,14 @@ body
             max-width: 300px
             .imgView
                 display: block
+                cursor: pointer
                 float: left
                 margin: 3px
                 background-color: whitesmoke
                 text-align: center
                 width: 135px
+                &.active
+                    background-color: $major_text_color
         .bigImgContainer
             display: inline-block
             text-align: center

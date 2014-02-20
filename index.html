@@ -7,290 +7,67 @@
     <script type="text/javascript" src="lib/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="lib/underscore-1.5.2.js"></script>
     <script type="text/javascript" src="lib/backbone-1.1.js"></script>
-    <script type="text/javascript" src="js/img-viewer.js"></script>
+
+    <script type="text/javascript" src="mockjax-lib.js"></script>
+    <script type="text/javascript" src="mocks.js"></script>
+    <script type="text/javascript" src="js/overviewer.js"></script>
+    <script type="text/javascript" src="js/overviewer-model.js"></script>
+    <script type="text/javascript" src="js/images-view.js"></script>
+    <script type="text/javascript" src="js/description-view.js"></script>
+    <script type="text/javascript" src="js/active-img-view.js"></script>
 
     <link rel="stylesheet" href="css/img_viewer.css"/>
 </head>
 <body>
 <div class="overviewWS">
-    <div class="imgViewer">
 
-        <div class="smallImgsContainer">
-            <div class="imgView">
-                <img src="gfx/iphone.jpg" alt=""/>
+<script type="javascript/template" id="imgGallery">
+    <div class="smallImgsContainer">
+        <% _.each(getImgsLinks(), function (link, ind) { %>
+            <div class="imgView <% if (ind === model.get('activeImgIndx')) { %>active<% } %>" >
+                <img id="<%= ind %>" src="<%= link %>" alt="" />
             </div>
-
-            <div class="imgView">
-                <img src="gfx/iphone.jpg" alt=""/>
-            </div>
-
-            <div class="imgView">
-                <img src="gfx/iphone.jpg" alt=""/>
-            </div>
-
-            <div class="imgView">
-                <img src="gfx/iphone.jpg" alt=""/>
-            </div>
-
-            <div class="imgView">
-                <img src="gfx/iphone.jpg" alt=""/>
-            </div>
-
-            <div class="imgView">
-                <img src="gfx/iphone.jpg" alt=""/>
-            </div>
-
-            <div class="imgView">
-                <img src="gfx/iphone.jpg" alt=""/>
-            </div>
-
-            <div class="imgView">
-                <img src="gfx/iphone.jpg" alt=""/>
-            </div>
-
-            <div class="imgView">
-                <img src="gfx/iphone.jpg" alt=""/>
-            </div>
-
-            <div class="imgView">
-                <img src="gfx/iphone.jpg" alt=""/>
-            </div>
-        </div>
-
-        <div class="bigImgContainer">
-            <img src="gfx/nokia.jpg" alt=""/>
-        </div>
+        <% }); %>
     </div>
 
-    <div class="descriptionContainer">
-        <h1>
-            <a href="">Asus K56CM</a>
-            <span class="price">200$</span> -
-            <span>300$</span>
-            <span class="date">2013, 3-ий квартал</span>
-        </h1>
+    <div class="bigImgContainer"></div>
+</script>
 
-        <p>
-            На момент анонса Ascend P6 являлся одним из самых тонких смартфонов на рынке. Корпус аппарата выполнен из металла. Одна из первых имиджевых моделей китайского производителя.
-            В роли процессора выступает платформа K3V2 – собственная разработка Huawei. Процессор имеет 4 вычислительных ядра с частотой 1.5ГГц. Экран немногим меньше 5 дюймов, при этом разрешение 720x1280 с технологией IPS. Фронтальная камера может похвастаться высоким разрешением 5 мегапикселей.
-            Используется Android 4.2.2 с фирменной оболочкой Emotion UI.
-        </p>
+<script type="javascript/template" id="description">
+    <h1>
+        <a href="<%= get('itemLink') %>"><%= get("itemTitle") %></a>
+        <span class="price"><%= get('minPrice') %></span> -
+        <span><%= get('maxPrice') %></span>
+        <span class="date"><%= get('doDate') %></span>
+    </h1>
 
-        <h2>Технические характеристики</h2>
+    <p>
+        <%= get('summary') %>
+    </p>
 
-        <ul>
+    <h2>Технические характеристики</h2>
+
+    <ul>
+        <% _.each(get('detailsData'), function (detail) { %>
             <li>
-                <h3>Тип</h3>
-                <h4>Смартфон</h4>
+                <h3><%= detail.name %></h3>
+                <h4><%= detail.value %></h4>
             </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Операционная система</h3>
-                <h4>Apple iOS</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Тип</h3>
-                <h4>Смартфон</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Операционная система</h3>
-                <h4>Apple iOS</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Тип</h3>
-                <h4>Смартфон</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Стандарт связи</h3>
-                <h4>GSM (2G), EDGE (2.9G), UMTS (3G), HSPA (3.5G), HSPA+ (3.75G)</h4>
-            </li>
-            <li>
-                <h3>Операционная система</h3>
-                <h4>Apple iOS</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-            <li>
-                <h3>Процессор</h3>
-                <h4>Apple A7</h4>
-            </li>
-        </ul>
-        <h3></h3>
-        <p></p>
-    </div>
+        <% }); %>
+    </ul>
+</script>
+
+
 </div>
 
 <script type="text/javascript">
-    var imgViewer = new window.ImageViewer();
+    $(document).ready(function () {
+        window.imgViewer = new window.Overviewer({
+            itemId: 1
+        });
+
+        Backbone.history.start();
+    });
 </script>
 
 </body>
